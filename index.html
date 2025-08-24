@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DrData</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f5f5; color: #333; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .header { background: black; color: white; padding: 20px; text-align: center; margin-bottom: 30px; border-radius: 12px; }
+        .ai-section { background: white; padding: 20px; border: 2px solid black; margin-bottom: 30px; border-radius: 12px; }
+        .ai-section h2 { color: black; margin-bottom: 15px; }
+        .specialty-selector { margin-bottom: 20px; }
+        .specialty-selector select { padding: 10px; border: 1px solid #666; background: white; border-radius: 8px; }
+        .insights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 30px; }
+        .insight-card { background: white; padding: 20px; border: 1px solid #666; text-align: center; border-radius: 12px; }
+        .insight-card h3 { color: black; margin-bottom: 15px; }
+        .btn { background: black; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 8px; }
+        .btn:hover { background: #333; }
+        .result-area { background: #e8e8e8; padding: 15px; border: 1px solid #666; margin-top: 15px; min-height: 80px; border-radius: 8px; }
+        .doctor-card { background: white; border: 1px solid #666; padding: 15px; margin-bottom: 10px; border-radius: 8px; }
+        .doctor-name { font-weight: bold; color: black; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>DrData</h1>
+            <p></p>
+        </div>
+
+        <div class="ai-section">
+            <h2>🤖 AI Analysis & Recommendations</h2>
+            <div class="specialty-selector">
+                <label>Select Specialty: </label>
+                <select id="specialtySelect" onchange="showSpecialtyRecommendations()">
+                    <option value="">Choose a specialty...</option>
+                </select>
+            </div>
+            <div id="aiAnalysis" class="result-area">
+                <p>Select a specialty above to get AI-powered doctor recommendations</p>
+            </div>
+        </div>
+
+        <div class="insights-grid">
+            <div class="insight-card">
+                <h3>🏆 Top Rated Doctors</h3>
+                <button class="btn" onclick="showTopRated()">Show Top Doctors</button>
+                <div id="topRated" class="result-area hidden"></div>
+            </div>
+            
+            <div class="insight-card">
+                <h3>📊 Experience Analysis</h3>
+                <button class="btn" onclick="showExperience()">Analyze Experience</button>
+                <div id="experienceStats" class="result-area hidden"></div>
+            </div>
+            
+            <div class="insight-card">
+                <h3>🏥 Specialty Breakdown</h3>
+                <button class="btn" onclick="showSpecialties()">Show Specialties</button>
+                <div id="specialtyStats" class="result-area hidden"></div>
+            </div>
+            
+            <div class="insight-card">
+                <h3>📍 Location Insights</h3>
+                <button class="btn" onclick="showLocations()">Show Locations</button>
+                <div id="locationInsights" class="result-area hidden"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script>
+        let doctorData = [];
+
+        window.onload = function() {
+            loadData();
+        };
+
+        function loadData() {
+            fetch('healthcare_doctors.xlsx')
+                .then(response => response.arrayBuffer())
+                .then(data => {
+                    const workbook = XLSX.read(data, {type: 'array'});
+                    const sheetName = workbook.SheetNames[0];
+                    const worksheet = workbook.Sheets[sheetName];
+                    doctorData = XLSX.utils.sheet_to_json(worksheet);
+                    populateSpecialtyDropdown();
+                })
+                .catch(error => {
+                    fetch('test_enhanced_doctors.xlsx')
+                        .then(response => response.arrayBuffer())
+                        .then(data => {
+                            const workbook = XLSX.read(data, {type: 'array'});
+                            const sheetName = workbook.SheetNames[0];
+                            const worksheet = workbook.Sheets[sheetName];
+                            doctorData = XLSX.utils.sheet_to_json(worksheet);
+                            populateSpecialtyDropdown();
+                        })
+                        .catch(err => console.error('No data files found'));
+                });
+        }
+
+        function populateSpecialtyDropdown() {
+            const specialties = [...new Set(doctorData.map(doc => doc.Specialty))].sort();
+            const select = document.getElementById('specialtySelect');
+            specialties.forEach(specialty => {
+                const option = document.createElement('option');
+                option.value = specialty;
+                option.textContent = specialty;
+                select.appendChild(option);
+            });
+        }
+
+        function showSpecialtyRecommendations() {
+            const selectedSpecialty = document.getElementById('specialtySelect').value;
+            if (!selectedSpecialty) return;
+
+            const specialtyDoctors = doctorData.filter(doc => doc.Specialty === selectedSpecialty);
+            const topDoctors = specialtyDoctors
+                .sort((a, b) => {
+                    const scoreA = (parseFloat(a.Rating || 0) * 0.6) + (parseInt(a['Years of Experience'] || 0) * 0.4);
+                    const scoreB = (parseFloat(b.Rating || 0) * 0.6) + (parseInt(b['Years of Experience'] || 0) * 0.4);
+                    return scoreB - scoreA;
+                })
+                .slice(0, 5);
+
+            const avgRating = specialtyDoctors.reduce((sum, doc) => sum + parseFloat(doc.Rating || 0), 0) / specialtyDoctors.length;
+            const avgExp = specialtyDoctors.reduce((sum, doc) => sum + parseInt(doc['Years of Experience'] || 0), 0) / specialtyDoctors.length;
+
+            let html = `<h3>AI Analysis for ${selectedSpecialty}</h3>`;
+            html += `<p><strong>Total Doctors:</strong> ${specialtyDoctors.length} | <strong>Avg Rating:</strong> ${avgRating.toFixed(1)}⭐ | <strong>Avg Experience:</strong> ${avgExp.toFixed(1)} years</p>`;
+            html += `<h4>🎯 Top Recommended Doctors:</h4>`;
+            
+            topDoctors.forEach((doc, index) => {
+                const aiScore = ((parseFloat(doc.Rating || 0) * 0.6) + (parseInt(doc['Years of Experience'] || 0) * 0.4)).toFixed(1);
+                html += `<div class="doctor-card">
+                    <div class="doctor-name">${index + 1}. ${doc.Name}</div>
+                    <div>Rating: ${doc.Rating}⭐ | Experience: ${doc['Years of Experience']} years | AI Score: ${aiScore}</div>
+                    <div>📍 ${doc.Address} | 📞 ${doc['Contact Number']}</div>
+                </div>`;
+            });
+
+            document.getElementById('aiAnalysis').innerHTML = html;
+        }
+
+        function showTopRated() {
+            const sorted = doctorData.sort((a, b) => parseFloat(b.Rating || 0) - parseFloat(a.Rating || 0)).slice(0, 5);
+            const html = sorted.map(doc => 
+                `<div style="margin-bottom: 10px;"><strong>${doc.Name}</strong><br>Rating: ${doc.Rating}⭐ | ${doc.Specialty}</div>`
+            ).join('');
+            document.getElementById('topRated').innerHTML = html;
+            document.getElementById('topRated').classList.remove('hidden');
+        }
+
+        function showExperience() {
+            const avgExp = doctorData.reduce((sum, doc) => sum + parseInt(doc['Years of Experience'] || 0), 0) / doctorData.length;
+            const experienced = doctorData.filter(doc => parseInt(doc['Years of Experience'] || 0) > 15).length;
+            const minExp = Math.min(...doctorData.map(d => parseInt(d['Years of Experience'] || 0)));
+            const maxExp = Math.max(...doctorData.map(d => parseInt(d['Years of Experience'] || 0)));
+            
+            document.getElementById('experienceStats').innerHTML = `
+                <div><strong>Average Experience:</strong> ${avgExp.toFixed(1)} years</div>
+                <div><strong>Highly Experienced (15+ years):</strong> ${experienced} doctors</div>
+                <div><strong>Experience Range:</strong> ${minExp} - ${maxExp} years</div>
+            `;
+            document.getElementById('experienceStats').classList.remove('hidden');
+        }
+
+        function showSpecialties() {
+            const specialties = {};
+            doctorData.forEach(doc => {
+                specialties[doc.Specialty] = (specialties[doc.Specialty] || 0) + 1;
+            });
+            
+            const sorted = Object.entries(specialties).sort((a, b) => b[1] - a[1]);
+            const html = sorted.map(([specialty, count]) => 
+                `<div><strong>${specialty}:</strong> ${count} doctors</div>`
+            ).join('');
+            document.getElementById('specialtyStats').innerHTML = html;
+            document.getElementById('specialtyStats').classList.remove('hidden');
+        }
+
+        function showLocations() {
+            const locations = {};
+            doctorData.forEach(doc => {
+                const area = doc.Address ? doc.Address.split(',')[0] : 'Unknown';
+                locations[area] = (locations[area] || 0) + 1;
+            });
+            
+            const sorted = Object.entries(locations).sort((a, b) => b[1] - a[1]).slice(0, 5);
+            const html = sorted.map(([area, count]) => 
+                `<div><strong>${area}:</strong> ${count} doctors</div>`
+            ).join('');
+            document.getElementById('locationInsights').innerHTML = html;
+            document.getElementById('locationInsights').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

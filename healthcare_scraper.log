@@ -1,0 +1,176 @@
+2025-08-24 20:19:02,388 - INFO - ====== WebDriver manager ======
+2025-08-24 20:19:03,595 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-24 20:19:03,780 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-24 20:19:03,941 - INFO - Driver [C:\Users\Hp\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-24 20:19:05,399 - INFO - WebDriver setup successful
+2025-08-24 20:19:05,400 - INFO - Starting scrape for Cardiology
+2025-08-24 20:19:05,400 - ERROR - Main execution error: 'MultiHealthcareScraper' object has no attribute 'collect_doctors'
+2025-08-24 20:19:43,888 - INFO - ====== WebDriver manager ======
+2025-08-24 20:19:44,809 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-24 20:19:44,972 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-24 20:19:45,106 - INFO - Driver [C:\Users\Hp\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-24 20:19:46,281 - INFO - WebDriver setup successful
+2025-08-24 20:19:46,282 - INFO - Starting scrape for Cardiology
+2025-08-24 20:19:46,282 - INFO - Scraping JustDial: https://www.justdial.com/pune/cardiologists
+2025-08-24 20:19:57,999 - INFO - Found 21 JustDial listings using: .resultbox
+2025-08-24 20:20:02,310 - INFO - Found 14 doctors from JustDial
+2025-08-24 20:20:02,310 - INFO - Applying AI analysis to 14 doctors
+2025-08-24 20:20:02,311 - INFO - AI analysis completed
+2025-08-24 20:20:04,311 - INFO - Starting scrape for Dermatology
+2025-08-24 20:20:04,312 - INFO - Scraping JustDial: https://www.justdial.com/pune/dermatologists
+2025-08-24 20:20:24,034 - INFO - Found 21 JustDial listings using: .resultbox
+2025-08-24 20:20:27,984 - INFO - Found 14 doctors from JustDial
+2025-08-24 20:20:27,984 - INFO - Applying AI analysis to 14 doctors
+2025-08-24 20:20:27,985 - INFO - AI analysis completed
+2025-08-24 20:20:29,985 - INFO - Starting scrape for Neurology
+2025-08-24 20:20:29,986 - INFO - Scraping JustDial: https://www.justdial.com/pune/neurologists
+2025-08-24 20:20:43,212 - INFO - Found 21 JustDial listings using: .resultbox
+2025-08-24 20:20:47,477 - INFO - Found 14 doctors from JustDial
+2025-08-24 20:20:47,477 - INFO - Applying AI analysis to 14 doctors
+2025-08-24 20:20:47,478 - INFO - AI analysis completed
+2025-08-24 20:20:49,479 - INFO - Starting scrape for Oncology
+2025-08-24 20:20:49,480 - INFO - Scraping JustDial: https://www.justdial.com/pune/oncologists
+2025-08-24 20:21:03,987 - INFO - Found 21 JustDial listings using: .resultbox
+2025-08-24 20:21:06,483 - INFO - Found 14 doctors from JustDial
+2025-08-24 20:21:06,483 - INFO - Applying AI analysis to 14 doctors
+2025-08-24 20:21:06,483 - INFO - AI analysis completed
+2025-08-24 20:21:08,486 - INFO - Starting scrape for General Surgery
+2025-08-24 20:21:08,488 - INFO - Scraping JustDial: https://www.justdial.com/pune/general-surgeons
+2025-08-24 20:21:25,071 - INFO - Found 21 JustDial listings using: .resultbox
+2025-08-24 20:21:27,779 - INFO - Found 14 doctors from JustDial
+2025-08-24 20:21:27,780 - INFO - Applying AI analysis to 14 doctors
+2025-08-24 20:21:27,780 - INFO - AI analysis completed
+2025-08-24 20:21:29,781 - INFO - Starting scrape for Orthopaedics
+2025-08-24 20:21:29,782 - INFO - Scraping JustDial: https://www.justdial.com/pune/orthopedic-doctors
+2025-08-24 20:21:43,054 - INFO - Found 21 JustDial listings using: .resultbox
+2025-08-24 20:21:45,400 - INFO - Found 14 doctors from JustDial
+2025-08-24 20:21:45,401 - INFO - Applying AI analysis to 14 doctors
+2025-08-24 20:21:45,401 - INFO - AI analysis completed
+2025-08-24 20:21:47,402 - INFO - Starting scrape for Neurosurgery
+2025-08-24 20:21:47,403 - INFO - Scraping JustDial: https://www.justdial.com/pune/neurosurgeons
+2025-08-24 20:22:00,305 - INFO - Found 21 JustDial listings using: .resultbox
+2025-08-24 20:22:06,287 - INFO - Found 14 doctors from JustDial
+2025-08-24 20:22:06,289 - INFO - Applying AI analysis to 14 doctors
+2025-08-24 20:22:06,290 - INFO - AI analysis completed
+2025-08-24 20:22:08,291 - INFO - Starting scrape for Paediatrics
+2025-08-24 20:22:08,292 - INFO - Scraping JustDial: https://www.justdial.com/pune/pediatricians
+2025-08-24 20:22:22,628 - INFO - Found 21 JustDial listings using: .resultbox
+2025-08-24 20:22:24,997 - INFO - Found 14 doctors from JustDial
+2025-08-24 20:22:24,998 - INFO - Applying AI analysis to 14 doctors
+2025-08-24 20:22:24,998 - INFO - AI analysis completed
+2025-08-24 20:22:26,999 - INFO - Starting scrape for Obstetrics/Gynecology
+2025-08-24 20:22:27,000 - INFO - Scraping JustDial: https://www.justdial.com/pune/gynecologists
+2025-08-24 20:22:40,106 - INFO - Found 21 JustDial listings using: .resultbox
+2025-08-24 20:22:42,272 - INFO - Found 14 doctors from JustDial
+2025-08-24 20:22:42,272 - INFO - Applying AI analysis to 14 doctors
+2025-08-24 20:22:42,272 - INFO - AI analysis completed
+2025-08-24 20:22:44,273 - INFO - Starting scrape for Psychiatry
+2025-08-24 20:22:44,274 - INFO - Scraping JustDial: https://www.justdial.com/pune/psychiatrists
+2025-08-24 20:22:57,274 - INFO - Found 21 JustDial listings using: .resultbox
+2025-08-24 20:23:00,426 - INFO - Found 14 doctors from JustDial
+2025-08-24 20:23:00,426 - INFO - Applying AI analysis to 14 doctors
+2025-08-24 20:23:00,426 - INFO - AI analysis completed
+2025-08-24 20:23:02,470 - INFO - Removed 39 duplicates
+2025-08-24 20:23:02,973 - INFO - Data saved to healthcare_doctors.xlsx - 101 records
+2025-08-24 20:23:02,974 - INFO - Scraping completed. Total doctors: 101
+2025-08-24 20:23:05,286 - INFO - WebDriver closed
+2025-08-24 20:24:03,429 - INFO - Starting doctor data scraping
+2025-08-24 20:24:03,430 - INFO - ====== WebDriver manager ======
+2025-08-24 20:24:04,408 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-24 20:24:04,594 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-24 20:24:04,750 - INFO - Driver [C:\Users\Hp\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-24 20:24:05,903 - INFO - WebDriver setup successful
+2025-08-24 20:24:05,904 - INFO - Working on Cardiology
+2025-08-24 20:24:05,904 - INFO - Scraping JustDial: https://www.justdial.com/pune/cardiologists
+2025-08-24 20:24:19,573 - INFO - Found 21 JustDial listings using: .resultbox
+2025-08-24 20:24:22,981 - INFO - Found 14 doctors from JustDial
+2025-08-24 20:24:22,982 - INFO - Applying AI analysis to 14 doctors
+2025-08-24 20:24:22,982 - INFO - AI analysis completed
+2025-08-24 20:24:22,982 - INFO - Found 14 doctors for Cardiology
+2025-08-24 20:24:22,982 - INFO - Working on Dermatology
+2025-08-24 20:24:22,982 - INFO - Scraping JustDial: https://www.justdial.com/pune/dermatologists
+2025-08-24 20:24:37,834 - INFO - Found 21 JustDial listings using: .resultbox
+2025-08-24 20:24:40,715 - INFO - Found 14 doctors from JustDial
+2025-08-24 20:24:40,716 - INFO - Applying AI analysis to 14 doctors
+2025-08-24 20:24:40,716 - INFO - AI analysis completed
+2025-08-24 20:24:40,716 - INFO - Found 14 doctors for Dermatology
+2025-08-24 20:24:40,716 - INFO - Working on Neurology
+2025-08-24 20:24:40,716 - INFO - Scraping JustDial: https://www.justdial.com/pune/neurologists
+2025-08-24 20:24:55,180 - INFO - Found 21 JustDial listings using: .resultbox
+2025-08-24 20:24:58,231 - INFO - Found 14 doctors from JustDial
+2025-08-24 20:24:58,232 - INFO - Applying AI analysis to 14 doctors
+2025-08-24 20:24:58,232 - INFO - AI analysis completed
+2025-08-24 20:24:58,232 - INFO - Found 14 doctors for Neurology
+2025-08-24 20:24:58,232 - INFO - Working on Oncology
+2025-08-24 20:24:58,233 - INFO - Scraping JustDial: https://www.justdial.com/pune/oncologists
+2025-08-24 20:25:11,334 - INFO - Found 21 JustDial listings using: .resultbox
+2025-08-24 20:25:14,095 - INFO - Found 14 doctors from JustDial
+2025-08-24 20:25:14,095 - INFO - Applying AI analysis to 14 doctors
+2025-08-24 20:25:14,096 - INFO - AI analysis completed
+2025-08-24 20:25:14,096 - INFO - Found 14 doctors for Oncology
+2025-08-24 20:25:14,096 - INFO - Working on General Surgery
+2025-08-24 20:25:14,096 - INFO - Scraping JustDial: https://www.justdial.com/pune/general-surgeons
+2025-08-24 20:25:28,344 - INFO - Found 21 JustDial listings using: .resultbox
+2025-08-24 20:25:31,444 - INFO - Found 14 doctors from JustDial
+2025-08-24 20:25:31,444 - INFO - Applying AI analysis to 14 doctors
+2025-08-24 20:25:31,445 - INFO - AI analysis completed
+2025-08-24 20:25:31,445 - INFO - Found 14 doctors for General Surgery
+2025-08-24 20:25:31,445 - INFO - Working on Orthopaedics
+2025-08-24 20:25:31,445 - INFO - Scraping JustDial: https://www.justdial.com/pune/orthopedic-doctors
+2025-08-24 20:25:45,582 - INFO - Found 21 JustDial listings using: .resultbox
+2025-08-24 20:25:49,000 - INFO - Found 14 doctors from JustDial
+2025-08-24 20:25:49,001 - INFO - Applying AI analysis to 14 doctors
+2025-08-24 20:25:49,001 - INFO - AI analysis completed
+2025-08-24 20:25:49,001 - INFO - Found 14 doctors for Orthopaedics
+2025-08-24 20:25:49,001 - INFO - Working on Neurosurgery
+2025-08-24 20:25:49,001 - INFO - Scraping JustDial: https://www.justdial.com/pune/neurosurgeons
+2025-08-24 20:26:03,280 - INFO - Found 21 JustDial listings using: .resultbox
+2025-08-24 20:26:06,557 - INFO - Found 14 doctors from JustDial
+2025-08-24 20:26:06,557 - INFO - Applying AI analysis to 14 doctors
+2025-08-24 20:26:06,557 - INFO - AI analysis completed
+2025-08-24 20:26:06,557 - INFO - Found 14 doctors for Neurosurgery
+2025-08-24 20:26:06,557 - INFO - Working on Paediatrics
+2025-08-24 20:26:06,557 - INFO - Scraping JustDial: https://www.justdial.com/pune/pediatricians
+2025-08-24 20:26:20,417 - INFO - Found 21 JustDial listings using: .resultbox
+2025-08-24 20:26:22,989 - INFO - Found 14 doctors from JustDial
+2025-08-24 20:26:22,989 - INFO - Applying AI analysis to 14 doctors
+2025-08-24 20:26:22,990 - INFO - AI analysis completed
+2025-08-24 20:26:22,990 - INFO - Found 14 doctors for Paediatrics
+2025-08-24 20:26:22,990 - INFO - Working on Obstetrics/Gynecology
+2025-08-24 20:26:22,990 - INFO - Scraping JustDial: https://www.justdial.com/pune/gynecologists
+2025-08-24 20:26:37,014 - INFO - Found 21 JustDial listings using: .resultbox
+2025-08-24 20:26:39,461 - INFO - Found 14 doctors from JustDial
+2025-08-24 20:26:39,462 - INFO - Applying AI analysis to 14 doctors
+2025-08-24 20:26:39,463 - INFO - AI analysis completed
+2025-08-24 20:26:39,463 - INFO - Found 14 doctors for Obstetrics/Gynecology
+2025-08-24 20:26:39,463 - INFO - Working on Psychiatry
+2025-08-24 20:26:39,463 - INFO - Scraping JustDial: https://www.justdial.com/pune/psychiatrists
+2025-08-24 20:26:53,381 - INFO - Found 21 JustDial listings using: .resultbox
+2025-08-24 20:26:55,609 - INFO - Found 14 doctors from JustDial
+2025-08-24 20:26:55,609 - INFO - Applying AI analysis to 14 doctors
+2025-08-24 20:26:55,609 - INFO - AI analysis completed
+2025-08-24 20:26:55,609 - INFO - Found 14 doctors for Psychiatry
+2025-08-24 20:26:55,627 - INFO - Removed 38 duplicates
+2025-08-24 20:26:56,030 - INFO - Data saved to healthcare_doctors.xlsx - 102 records
+2025-08-24 20:26:58,285 - INFO - WebDriver closed
+2025-08-24 20:26:58,286 - INFO - Scraping completed successfully: {'status': 'success', 'total_doctors': 102, 'filename': 'healthcare_doctors.xlsx', 'log_file': 'doctor_scraping_20250824_202403.log', 'timestamp': '20250824_202658', 'areas_covered': ['Pune', 'Aundh', 'Baner', 'Wakad'], 'specialties_done': ['Cardiology', 'Dermatology', 'Neurology', 'Oncology', 'General Surgery', 'Orthopaedics', 'Neurosurgery', 'Paediatrics', 'Obstetrics/Gynecology', 'Psychiatry'], 'data_sources': ['JustDial'], 'doctor_info_fields': ['Name', 'Specialty', 'Clinic/Hospital', 'Address', 'Years of Experience', 'Contact Number', 'Email', 'Rating', 'Reviews Count', 'Pros', 'Cons', 'Recommendation']}
+2025-08-24 22:22:07,668 - INFO - ====== WebDriver manager ======
+2025-08-24 22:22:09,687 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-24 22:22:09,900 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-24 22:22:10,032 - INFO - Driver [C:\Users\Hp\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-24 22:22:12,418 - INFO - WebDriver setup successful
+2025-08-24 22:22:12,419 - INFO - Starting scrape for Cardiology
+2025-08-24 22:22:12,419 - INFO - Scraping JustDial: https://www.justdial.com/pune/cardiologists
+2025-08-24 22:22:30,626 - INFO - Starting doctor data scraping
+2025-08-24 22:22:30,627 - INFO - ====== WebDriver manager ======
+2025-08-24 22:22:31,665 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-24 22:22:31,836 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-24 22:22:31,994 - INFO - Driver [C:\Users\Hp\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-24 22:22:33,155 - INFO - WebDriver setup successful
+2025-08-24 22:22:33,155 - INFO - Working on Cardiology
+2025-08-24 22:22:33,155 - INFO - Scraping JustDial: https://www.justdial.com/pune/cardiologists
+2025-08-24 22:22:34,263 - ERROR - Error scraping JustDial: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2025-08-24 22:22:34,263 - INFO - Found 0 doctors from JustDial
+2025-08-24 22:22:34,264 - INFO - Found 0 doctors for Cardiology
+2025-08-24 22:22:34,265 - INFO - Working on Dermatology
+2025-08-24 22:22:34,265 - INFO - Scraping JustDial: https://www.justdial.com/pune/dermatologists
