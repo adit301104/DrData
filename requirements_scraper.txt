@@ -1,6 +1,0 @@
-undetected-chromedriver
-selenium
-requests
-fake-useragent
-beautifulsoup4
-groq
