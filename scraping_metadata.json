@@ -1,0 +1,11 @@
+{
+  "total_doctors": 17476,
+  "scraping_date": "2025-08-27T20:43:52.173906",
+  "success_count": 0,
+  "failed_urls": 0,
+  "areas": [
+    "Aundh",
+    "Baner",
+    "Wakad"
+  ]
+}

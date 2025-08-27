@@ -6,7 +6,7 @@ import sys
 import os
 import json
 from datetime import datetime
-from multi_healthcare_scraper import MultiHealthcareScraper
+from robust_pune_scraper import RobustPuneScraper
 import logging
 
 def setup_logging():
@@ -27,55 +27,38 @@ def run_automation():
     log_file = setup_logging()
     
     try:
-        logging.info("Starting doctor data scraping")
+        logging.info("Starting robust doctor data scraping")
         
-        # Areas and specialties we want to scrape
-        pune_areas = ['Aundh', 'Baner', 'Wakad']
-        medical_specialties = [
-            'Cardiology', 'Dermatology', 'Neurology', 'Oncology', 
-            'General Surgery', 'Orthopaedics', 'Neurosurgery', 
-            'Paediatrics', 'Obstetrics/Gynecology', 'Psychiatry'
-        ]
+        # Start the robust scraper
+        scraper = RobustPuneScraper()
         
-        # Start the scraper
-        scraper = MultiHealthcareScraper()
-        doctor_list = []
-        
-        # Go through each specialty and collect doctors
-        for specialty in medical_specialties:
-            logging.info(f"Working on {specialty}")
-            found_doctors = scraper.scrape_all_sources(specialty)
-            doctor_list.extend(found_doctors)
-            logging.info(f"Found {len(found_doctors)} doctors for {specialty}")
-        
-        # Remove duplicates and clean up the data
-        final_data = scraper.remove_duplicates(doctor_list)
+        # Run comprehensive scraping
+        doctor_list = scraper.scrape_comprehensive()
         
         # Always save to the same file so frontend can find it
         output_file = 'healthcare_doctors.xlsx'
-        
-        scraper.save_to_excel(final_data, output_file)
-        scraper.close_driver()
+        scraper.save_results(doctor_list, output_file)
+        scraper.close()
         
         # Send results back to n8n
         run_time = datetime.now().strftime('%Y%m%d_%H%M%S')
         success_result = {
             'status': 'success',
-            'total_doctors': len(final_data),
+            'total_doctors': len(doctor_list),
             'filename': output_file,
             'log_file': log_file,
             'timestamp': run_time,
-            'areas_covered': ['Pune', 'Aundh', 'Baner', 'Wakad'],
-            'specialties_done': medical_specialties,
-            'data_sources': ['JustDial'],
+            'areas_covered': ['Aundh', 'Baner', 'Wakad', 'Kothrud', 'Viman Nagar', 'Hadapsar', 'Pune City', 'Camp', 'Koregaon Park', 'Deccan'],
+            'specialties_done': ['Cardiology', 'Dermatology', 'Neurology', 'Orthopedic', 'Pediatric', 'Gynecology', 'General Medicine', 'Oncology', 'Psychiatry', 'ENT', 'Ophthalmology', 'Urology'],
+            'data_sources': ['Practo', 'JustDial', '1mg', 'Lybrate', 'Apollo'],
             'doctor_info_fields': [
-                'Name', 'Specialty', 'Clinic/Hospital', 'Address',
-                'Years of Experience', 'Contact Number', 'Email',
-                'Rating', 'Reviews Count', 'Pros', 'Cons', 'Recommendation'
+                'Complete address', 'Doctors name', 'Specialty', 'Clinic/Hospital',
+                'Years of experience', 'Contact number', 'Ratings', 'Contact email',
+                'Reviews', 'Summary of Pros and Cons (Summary of reviews), and recommendation', 'Source'
             ]
         }
         
-        logging.info(f"Scraping completed successfully: {success_result}")
+        logging.info(f"Robust scraping completed successfully: {success_result}")
         print(json.dumps(success_result))  # n8n reads this output
         
         return success_result
